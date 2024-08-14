@@ -6,10 +6,13 @@ import { db } from '../data/db';
 
 const LandingPage = () => {
       const [data, setData] = useState(db);
-      //console.log(data);
+      const [cart, setCart] = useState([]);
 
-      const addToCart = () => {
-            console.log('Agregado al carrito');
+
+
+      console.log(cart);
+      const addToCart = (guitar) => {
+            setCart(prevCart => [...prevCart, guitar])
       }
 
       return (
