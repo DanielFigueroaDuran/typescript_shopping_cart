@@ -1,6 +1,6 @@
 
-import logo from "../assets/img/logo.svg";
-import car from "../assets/img/carrito.png";
+import logo from "../../public/assets/img/logo.svg";
+import car from "../../public/assets/img/carrito.png";
 
 
 const Header = () => {
