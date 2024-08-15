@@ -3,7 +3,9 @@ import logo from "../../public/assets/img/logo.svg";
 import car from "../../public/assets/img/carrito.png";
 
 
-const Header = () => {
+const Header = ({ cart }) => {
+
+      //state derivado
       return (
             <header className="py-3 header ">
                   <div className="container-xl ">
@@ -19,8 +21,8 @@ const Header = () => {
                                     >
                                           <img className="img-fluid" src={car} alt="imagen carrito" />
 
-                                          {/* <div id="carrito" className="bg-white p-3">
-                                                {isEmpty ? (
+                                          <div id="carrito" className="bg-white p-3">
+                                                {cart.length === 0 ? (
                                                       <p className="text-center">El carrito esta vacio</p>
                                                 ) : (
                                                       <>
@@ -40,7 +42,7 @@ const Header = () => {
                                                                                     <td>
                                                                                           <img
                                                                                                 className="img-fluid"
-                                                                                                src={`/img/${guitar.image}.jpg`}
+                                                                                                src={`assets/img/${guitar.image}.jpg`}
                                                                                                 alt="imagen guitarra"
                                                                                           />
                                                                                     </td>
@@ -52,7 +54,7 @@ const Header = () => {
                                                                                           <button
                                                                                                 type="button"
                                                                                                 className="btn btn-dark"
-                                                                                                onClick={() => decreaseQuantity(guitar.id)}
+                                                                                          // onClick={() => decreaseQuantity(guitar.id)}
                                                                                           >
                                                                                                 -
                                                                                           </button>
@@ -60,7 +62,7 @@ const Header = () => {
                                                                                           <button
                                                                                                 type="button"
                                                                                                 className="btn btn-dark"
-                                                                                                onClick={() => increaseQuantity(guitar.id)}
+                                                                                          // onClick={() => increaseQuantity(guitar.id)}
                                                                                           >
                                                                                                 +
                                                                                           </button>
@@ -69,7 +71,7 @@ const Header = () => {
                                                                                           <button
                                                                                                 className="btn btn-danger"
                                                                                                 type="button"
-                                                                                                onClick={() => removeFromCart(guitar.id)}
+                                                                                          // onClick={() => removeFromCart(guitar.id)}
                                                                                           >
                                                                                                 X
                                                                                           </button>
@@ -79,15 +81,15 @@ const Header = () => {
                                                                   </tbody>
                                                             </table>
 
-                                                            <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal}</span></p>
+                                                            {/* <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal}</span></p> */}
+
+                                                            <button
+                                                                  className="btn btn-dark w-100 mt-3 p-2"
+                                                            // onClick={clearCart}
+                                                            >Vaciar Carrito</button>
                                                       </>
                                                 )}
-
-                                                <button
-                                                      className="btn btn-dark w-100 mt-3 p-2"
-                                                      onClick={clearCart}
-                                                >Vaciar Carrito</button>
-                                          </div> */}
+                                          </div>
                                     </div>
                               </nav>
                         </div>

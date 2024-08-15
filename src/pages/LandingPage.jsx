@@ -10,14 +10,26 @@ const LandingPage = () => {
 
 
 
-      console.log(cart);
-      const addToCart = (guitar) => {
-            setCart(prevCart => [...prevCart, guitar])
+
+      const addToCart = (item) => {
+            const itemExists = cart.findIndex(guitar => guitar.id === item.id);
+
+            if (itemExists >= 0) {
+                  const updatedCart = [...cart];
+                  updatedCart[itemExists].quantity++;
+                  setCart(updatedCart);
+            } else {
+                  item.quantity = 1;
+                  setCart([...cart, item]);
+            }
+
       }
 
       return (
             <div>
-                  <Header />
+                  <Header
+                        cart={cart}
+                  />
 
                   <main className="container-xl mt-5">
                         <h2 className="text-center">Nuestra Colección</h2>
