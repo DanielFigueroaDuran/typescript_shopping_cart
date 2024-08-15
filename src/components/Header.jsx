@@ -1,11 +1,19 @@
 
 import logo from "../../public/assets/img/logo.svg";
 import car from "../../public/assets/img/carrito.png";
+import { useMemo } from "react";
 
 
 const Header = ({ cart }) => {
+      // useMemo(() => first, [second])
+
 
       //state derivado
+      const isEnpty = useMemo(() => cart.lengyh === 0, [cart]);
+      const cartTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0);
+
+
+
       return (
             <header className="py-3 header ">
                   <div className="container-xl ">
@@ -22,7 +30,7 @@ const Header = ({ cart }) => {
                                           <img className="img-fluid" src={car} alt="imagen carrito" />
 
                                           <div id="carrito" className="bg-white p-3">
-                                                {cart.length === 0 ? (
+                                                {isEnpty ? (
                                                       <p className="text-center">El carrito esta vacio</p>
                                                 ) : (
                                                       <>
@@ -81,7 +89,7 @@ const Header = ({ cart }) => {
                                                                   </tbody>
                                                             </table>
 
-                                                            {/* <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal}</span></p> */}
+                                                            <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal()}</span></p>
 
                                                             <button
                                                                   className="btn btn-dark w-100 mt-3 p-2"
