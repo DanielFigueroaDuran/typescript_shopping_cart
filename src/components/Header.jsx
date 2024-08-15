@@ -1,10 +1,10 @@
 
-import logo from "../../public/assets/img/logo.svg";
-import car from "../../public/assets/img/carrito.png";
+import logo from "/assets/img/logo.svg";
+import car from "/assets/img/carrito.png";
 import { useMemo } from "react";
 
 
-const Header = ({ cart, handleRemoveFrontCart }) => {
+const Header = ({ cart, handleRemoveFrontCart, handleIncreaseQuantity, handleDescrementoQuantity, handleClearCart }) => {
       // useMemo(() => first, [second])
 
 
@@ -62,7 +62,7 @@ const Header = ({ cart, handleRemoveFrontCart }) => {
                                                                                           <button
                                                                                                 type="button"
                                                                                                 className="btn btn-dark"
-                                                                                          // onClick={() => decreaseQuantity(guitar.id)}
+                                                                                                onClick={() => handleDescrementoQuantity(guitar.id)}
                                                                                           >
                                                                                                 -
                                                                                           </button>
@@ -70,7 +70,7 @@ const Header = ({ cart, handleRemoveFrontCart }) => {
                                                                                           <button
                                                                                                 type="button"
                                                                                                 className="btn btn-dark"
-                                                                                          // onClick={() => increaseQuantity(guitar.id)}
+                                                                                                onClick={() => handleIncreaseQuantity(guitar.id)}
                                                                                           >
                                                                                                 +
                                                                                           </button>
@@ -93,7 +93,7 @@ const Header = ({ cart, handleRemoveFrontCart }) => {
 
                                                             <button
                                                                   className="btn btn-dark w-100 mt-3 p-2"
-                                                            // onClick={clearCart}
+                                                                  onClick={handleClearCart}
                                                             >Vaciar Carrito</button>
                                                       </>
                                                 )}
