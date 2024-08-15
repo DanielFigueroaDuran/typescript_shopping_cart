@@ -9,8 +9,6 @@ const LandingPage = () => {
       const [cart, setCart] = useState([]);
 
 
-
-
       const addToCart = (item) => {
             const itemExists = cart.findIndex(guitar => guitar.id === item.id);
 
@@ -25,10 +23,17 @@ const LandingPage = () => {
 
       }
 
+      const handleRemoveFrontCart = (id) => {
+
+            setCart(prevCart => prevCart.filter(guitar => guitar.id !== id));
+
+      }
+
       return (
             <div>
                   <Header
                         cart={cart}
+                        handleRemoveFrontCart={handleRemoveFrontCart}
                   />
 
                   <main className="container-xl mt-5">

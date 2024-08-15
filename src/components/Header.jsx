@@ -4,13 +4,13 @@ import car from "../../public/assets/img/carrito.png";
 import { useMemo } from "react";
 
 
-const Header = ({ cart }) => {
+const Header = ({ cart, handleRemoveFrontCart }) => {
       // useMemo(() => first, [second])
 
 
       //state derivado
-      const isEnpty = useMemo(() => cart.lengyh === 0, [cart]);
-      const cartTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0);
+      const isEnpty = useMemo(() => cart.length === 0, [cart]);
+      const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart]);
 
 
 
@@ -79,7 +79,7 @@ const Header = ({ cart }) => {
                                                                                           <button
                                                                                                 className="btn btn-danger"
                                                                                                 type="button"
-                                                                                          // onClick={() => removeFromCart(guitar.id)}
+                                                                                                onClick={() => handleRemoveFrontCart(guitar.id)}
                                                                                           >
                                                                                                 X
                                                                                           </button>
@@ -89,7 +89,7 @@ const Header = ({ cart }) => {
                                                                   </tbody>
                                                             </table>
 
-                                                            <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal()}</span></p>
+                                                            <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal}</span></p>
 
                                                             <button
                                                                   className="btn btn-dark w-100 mt-3 p-2"
